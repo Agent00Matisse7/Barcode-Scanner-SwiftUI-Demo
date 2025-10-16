@@ -91,9 +91,13 @@ let authorizationStatus = AVCaptureDevice.authorizationStatus(for: .video)
 
 switch authorizationStatus {
 case .authorized:      // ✅ Already granted → start the session immediately.
+
 case .notDetermined:  // ❓ First launch → request access asynchronously.
+
 case .denied, .restricted: // 🚫 User said “No” or parental controls block → show a friendly alert.
+
 @unknown default:     // Defensive: log unexpected cases.
+
 }
 Why an alert?
 iOS will not automatically re‑prompt a user after they have denied permission. The only way to change it is:

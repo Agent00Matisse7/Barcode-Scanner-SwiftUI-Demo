@@ -112,23 +112,41 @@ The scanner is configured with an extensive list to cover most global standards.
 
 AVMetadataObject.ObjectType	Human‑readable name	Typical use‑case
 .upce	UPC‑E	Small retail items
+
 .ean13	EAN‑13	International products
+
 .ean8	EAN‑8	Small packages
+
 .code128	Code 128	Shipping, inventory
+
 .code93	Code 93	Similar to Code 128
+
 .code39Mod43	Code 39 (Mod 43)	Industrial labeling
+
 .qr	QR Code	URLs, contact info, custom data
+
 .aztec	Aztec	Transport tickets
+
 .dataMatrix	Data Matrix	Small item marking
+
 .pdf417	PDF‑417	Driver’s licenses, boarding passes
+
 .microPDF417	Micro PDF‑417	Small high‑density data
+
 .microQR	Micro QR	Very small QR codes
+
 .gs1DataBar	GS1 DataBar (RSS)	Retail pricing
+
 .gs1DataBarLimited	GS1 DataBar Limited	Variant for small items
+
 .gs1DataBarExpanded	GS1 DataBar Expanded	More data capacity
+
 .interleaved2of5	Interleaved 2 of 5	Logistics, ITF‑14
+
 .itf14	ITF‑14	Shipping cartons
+
 .gs1DataBarExpanded	GS1 DataBar Expanded	Larger data sets
+
 Customizing – If you only need a subset (e.g., just QR & Code‑128), replace the metadataOutput.metadataObjectTypes = [...] line with the types you care about. Fewer types can improve scanning performance on older hardware.
 
 # 7️⃣ Troubleshooting checklist

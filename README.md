@@ -3,7 +3,7 @@
 
 
 # 1️⃣ Clone or create a new SwiftUI project
-git clone https://github.com/yourname/BarcodeScannerDemo.git   # or start a new Xcode project
+git clone https://github.com/yourname/BarcodeScannerDemo.git](https://github.com/Agent00Matisse7/Barcode-Scanner-SwiftUI-Demo.git   # or start a new Xcode project
 
 # 2️⃣ Add the three Swift files (BarcodeScanner.swift, CameraPreview.swift, ContentView.swift)
 

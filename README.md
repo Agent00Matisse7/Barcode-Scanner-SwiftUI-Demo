@@ -187,7 +187,7 @@ Permission denied even after tapping “Allow”	Device restrictions (Screen Tim
     
     9.Unit tests----Mock AVCaptureMetadataOutputObjectsDelegate to verify that detectedBarcode updates correctly.
     
-    10Multiplatform (macOS) support------Replace AVCaptureDevice.default(for: .video) with the macOS equivalent and adapt the preview view for NSViewRepresentable.
+    10.Multiplatform (macOS) support------Replace AVCaptureDevice.default(for: .video) with the macOS equivalent and adapt the preview view for NSViewRepresentable.
 
 @StateObject private var scanner = BarcodeScanner()	Instantiates the scanner once for the lifetime of the view.
 if let session = scanner.captureSession, isScanning	Shows the live preview only when a session exists and the user has pressed “Start Scan”.

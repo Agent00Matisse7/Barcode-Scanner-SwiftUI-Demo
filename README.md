@@ -1,22 +1,24 @@
-## Quick start checklist 
-
-
-
-# 1️⃣ Clone or create a new SwiftUI project
-git clone https://github.com/yourname/BarcodeScannerDemo.git](https://github.com/Agent00Matisse7/Barcode-Scanner-SwiftUI-Demo.git   # or start a new Xcode project
-
-# 2️⃣ Add the three Swift files (BarcodeScanner.swift, CameraPreview.swift, ContentView.swift)
-
-# 3️⃣ Edit Info.plist → add NSCameraUsageDescription
-
-# 4️⃣ Build & run on a real device (Developer Mode ON)
-
-# 5️⃣ Tap “Start Scan”, point the camera at a QR code / barcode → see the result.
-
+     Quick start checklist 
+    
+    
+    
+    1️⃣ Clone or create a new SwiftUI project
+    git clone https://github.com/yourname/BarcodeScannerDemo.git](https://github.com/Agent00Matisse7/Barcode-Scanner-SwiftUI-Demo.git 
+    
+            or start a new Xcode project
+    
+    2️⃣ Add the three Swift files (BarcodeScanner.swift, CameraPreview.swift, ContentView.swift)
+    
+    3️⃣ Edit Info.plist → add NSCameraUsageDescription
+    
+    4️⃣ Build & run on a real device (Developer Mode ON)
+    
+    5️⃣ Tap “Start Scan”, point the camera at a QR code / barcode → see the result.
+    
 
 Barcode‑Scanner SwiftUI Demo
 
-Version: 1.0 | Swift: 5.9 | iOS / iPadOS: 15 +
+    Version: 1.0 | Swift: 5.9 | iOS / iPadOS: 15 +
 
 A minimal, self‑contained SwiftUI project that shows how to:
 
@@ -43,6 +45,7 @@ Understanding the permission flow & recovery
 Supported barcode formats (metadata object types)
 Troubleshooting checklist
 Further enhancements & ideas
+
 # 1️⃣ Project setup
 
 Create a new SwiftUI app in Xcode (File → New → Project → App).
@@ -87,18 +90,18 @@ Tip: If you need to test the “not determined” path again, you can delete the
 
 # 5️⃣ Understanding the permission flow & recovery
 
-let authorizationStatus = AVCaptureDevice.authorizationStatus(for: .video)
-
-switch authorizationStatus {
-case .authorized:      // ✅ Already granted → start the session immediately.
-
-case .notDetermined:  // ❓ First launch → request access asynchronously.
-
-case .denied, .restricted: // 🚫 User said “No” or parental controls block → show a friendly alert.
-
-@unknown default:     // Defensive: log unexpected cases.
-
-}
+    let authorizationStatus = AVCaptureDevice.authorizationStatus(for: .video)
+    
+    switch authorizationStatus {
+    case .authorized:      // ✅ Already granted → start the session immediately.
+    
+    case .notDetermined:  // ❓ First launch → request access asynchronously.
+    
+    case .denied, .restricted: // 🚫 User said “No” or parental controls block → show a friendly alert.
+    
+    @unknown default:     // Defensive: log unexpected cases.
+    
+    }
 Why an alert?
 iOS will not automatically re‑prompt a user after they have denied permission. The only way to change it is:
 
@@ -166,16 +169,25 @@ Permission denied even after tapping “Allow”	Device restrictions (Screen Tim
 
 # How to implement
 
-Flash/torch toggle	Use AVCaptureDevice.default(for: .video)?.torchMode = .on/.off. Add a button that toggles the mode, checking hasTorch.
-Continuous scanning	Instead of stopScanning() after the first detection, keep the session alive and store results in an array.
-Sound feedback	Play a short system sound (AudioServicesPlaySystemSound) when a barcode is successfully read.
-Barcode format UI hint	Show icons for the supported formats (QR, Code‑128, etc.) so users know what to aim for.
-Result validation	If you expect a URL, validate with URL(string:) before presenting; otherwise show an error.
-Share / copy result	Add a ShareLink or Button that copies the scanned string to the clipboard (UIPasteboard.general.string).
-Combine with CoreLocation	Associate a GPS coordinate with the scan (use CLLocationManager), useful for inventory tracking.
-Custom overlay (frame)	Overlay a semi‑transparent rectangle to guide the user where to position the barcode.
-Unit tests	Mock AVCaptureMetadataOutputObjectsDelegate to verify that detectedBarcode updates correctly.
-Multiplatform (macOS) support	Replace AVCaptureDevice.default(for: .video) with the macOS equivalent and adapt the preview view for NSViewRepresentable.
+    1.Flash/torch toggle-----Use AVCaptureDevice.default(for: .video)?.torchMode = .on/.off. Add a button that toggles the mode, checking hasTorch.
+    
+    2.Continuous scanning-----Instead of stopScanning() after the first detection, keep the session alive and store results in an array.
+    
+    3.Sound feedback-----Play a short system sound (AudioServicesPlaySystemSound) when a barcode is successfully read.
+    
+    4.Barcode format UI hint-----Show icons for the supported formats (QR, Code‑128, etc.) so users know what to aim for.
+    
+    5.Result validation-----If you expect a URL, validate with URL(string:) before presenting; otherwise show an error.
+    
+    6.Share / copy result-----Add a ShareLink or Button that copies the scanned string to the clipboard (UIPasteboard.general.string).
+    
+    7.Combine with CoreLocation	Associate a GPS coordinate with the scan (use CLLocationManager), useful for inventory tracking.
+    
+    8.Custom overlay (frame)------Overlay a semi‑transparent rectangle to guide the user where to position the barcode.
+    
+    9.Unit tests----Mock AVCaptureMetadataOutputObjectsDelegate to verify that detectedBarcode updates correctly.
+    
+    10Multiplatform (macOS) support------Replace AVCaptureDevice.default(for: .video) with the macOS equivalent and adapt the preview view for NSViewRepresentable.
 
 @StateObject private var scanner = BarcodeScanner()	Instantiates the scanner once for the lifetime of the view.
 if let session = scanner.captureSession, isScanning	Shows the live preview only when a session exists and the user has pressed “Start Scan”.
